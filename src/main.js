@@ -14,6 +14,24 @@ window.galleryData = {
     ]
 };
 
+
+window.showComingSoonToast = () => {
+    const toast = document.getElementById('toast');
+    
+    // Evitar múltiples clics rápidos
+    if (toast.classList.contains('opacity-100')) return;
+
+    // Mostrar
+    toast.classList.remove('opacity-0', 'translate-y-10');
+    toast.classList.add('opacity-100', 'translate-y-0');
+
+    // Ocultar después de 5 segundos
+    setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-10');
+    }, 5000);
+};
+
 // 2. Definimos la función de filtrado
 window.filterGallery = function(category, event) {
     const grid = document.getElementById('gallery-grid');
