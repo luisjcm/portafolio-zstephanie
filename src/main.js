@@ -1,16 +1,55 @@
 // 1. Definimos los datos y los exponemos globalmente de inmediato
 window.galleryData = {
-    reels: [
-        { id: 1, type: 'video', thumb: 'https://images.pexels.com/photos/257904/pexels-photo-257904.jpeg?auto=compress&cs=tinysrgb&w=400', title: 'Edición Senior A' },
-        { id: 2, type: 'video', thumb: 'https://images.pexels.com/photos/3062541/pexels-photo-3062541.jpeg?auto=compress&cs=tinysrgb&w=400', title: 'Storytelling Reel' },
-        { id: 3, type: 'video', thumb: 'https://images.pexels.com/photos/2510428/pexels-photo-2510428.jpeg?auto=compress&cs=tinysrgb&w=400', title: 'Color Grade Pro' },
+    proyectos: [
+        { id: 1, type: 'video', thumb: 'https://images.pexels.com/photos/257904/pexels-photo-257904.jpeg', title: 'Edición Reel A' },
+        
+        { 
+            id: 2, 
+            type: 'video', 
+            thumb: 'https://images.pexels.com/photos/3379934/pexels-photo-3379934.jpeg', 
+            title: 'Storytelling Reel' 
+        },
+        { 
+            id: 3, 
+            type: 'video', 
+            thumb: 'https://images.pexels.com/photos/2510428/pexels-photo-2510428.jpeg', 
+            title: 'Diseño Estratégico' 
+        },
+        { 
+            id: 4, 
+            type: 'video', 
+            thumb: 'https://images.pexels.com/photos/403495/pexels-photo-403495.jpeg', 
+            title: 'Campaña Marcas' 
+        }
+
     ],
-    diseno: [
-        { id: 4, type: 'image', thumb: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=400', title: 'Branding Project' },
-        { id: 5, type: 'image', thumb: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=400', title: 'Social Media Kit' },
+    experiencia: [
+        { 
+            id: 10, 
+            type: 'text', 
+            title: 'Social Media Manager', 
+            company: 'Agencia Creativa', 
+            date: '2023 - Presente',
+            desc: 'Gestión de comunidades y creación de contenido estratégico.' 
+        },
+        { 
+            id: 11, 
+            type: 'text', 
+            title: 'Editora de Video', 
+            company: 'Freelance', 
+            date: '2021 - 2023',
+            desc: 'Edición de más de 100 Reels con alto impacto orgánico.' 
+        }
     ],
-    estrategia: [
-        { id: 6, type: 'image', thumb: 'https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Content Strategy A' },
+    formacion: [
+        { 
+            id: 20, 
+            type: 'text', 
+            title: 'Estratega Digital', 
+            company: 'Universidad de Marketing', 
+            date: '2022',
+            desc: 'Especialización en narrativa visual y algoritmos.' 
+        }
     ]
 };
 
@@ -32,55 +71,68 @@ window.showComingSoonToast = () => {
     }, 5000);
 };
 
-// 2. Definimos la función de filtrado
-window.filterGallery = function(category, event) {
-    const grid = document.getElementById('gallery-grid');
-    const buttons = document.querySelectorAll('.tab-link');
-    
-    if (!grid || !window.galleryData[category]) return;
+window.filterGallery = function(category, event = null) {
+    const container = document.getElementById('gallery-grid');
+    const items = window.galleryData[category] || [];
+    const tabs = document.querySelectorAll('.tab-link');
 
-    // Efecto de salida
-    grid.style.opacity = '0';
+    // 1. Identificar el Tab actual
+    let activeTab;
+    if (event && event.currentTarget) {
+        activeTab = event.currentTarget;
+    } else {
+        activeTab = tabs[0]; // Proyectos por defecto
+    }
 
-    setTimeout(() => {
-        grid.innerHTML = '';
+    // 2. Cambiar estados de clases
+    tabs.forEach(tab => {
+        const indicator = tab.querySelector('.active-indicator');
         
-        // Inyectar items usando window.galleryData
-        window.galleryData[category].forEach(item => {
-            const card = `
-                <div class="group relative aspect-[9/16] bg-zinc-900 rounded-2xl overflow-hidden border border-white/5 cursor-pointer hover:border-[#B19CD9]/30 transition-all duration-500 animate-in fade-in zoom-in-95">
-                    <img src="${item.thumb}" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" alt="${item.title}">
-                    <div class="absolute bottom-0 left-0 p-5 w-full bg-gradient-to-t from-black/95 via-black/50 to-transparent">
-                      <p class="text-[10px] uppercase tracking-[0.2em] text-[#B19CD9] font-bold mb-1">${category}</p>
-                      <h4 class="text-white text-sm font-medium tracking-wide">${item.title}</h4>
+        // Resetear todos los tabs
+        tab.classList.remove('text-white', 'active');
+        tab.classList.add('text-zinc-500');
+        
+        // Resetear indicadores (Línea invisible y pequeña)
+        indicator.classList.remove('scale-x-100', 'opacity-100');
+        indicator.classList.add('scale-x-0', 'opacity-0');
+    });
+
+    // 3. Activar el tab seleccionado
+    activeTab.classList.remove('text-zinc-500');
+    activeTab.classList.add('text-white', 'active');
+    
+    const activeIndicator = activeTab.querySelector('.active-indicator');
+    activeIndicator.classList.remove('scale-x-0', 'opacity-0');
+    activeIndicator.classList.add('scale-x-100', 'opacity-100');
+
+    // 4. Renderizado dinámico
+    container.innerHTML = items.map(item => {
+        if (item.type === 'text') {
+            return `
+                <div class="col-span-full md:col-span-1 bg-zinc-900/50 border border-white/5 p-6 rounded-2xl animate-in fade-in zoom-in duration-500">
+                    <span class="text-[#B19CD9] text-[10px] font-bold uppercase tracking-widest">${item.date}</span>
+                    <h4 class="text-white text-lg font-semibold mt-1">${item.title}</h4>
+                    <p class="text-zinc-500 text-xs mb-3">${item.company}</p>
+                    <p class="text-zinc-400 text-sm leading-relaxed">${item.desc}</p>
+                </div>
+            `;
+        } else {
+            return `
+                <div class="group relative aspect-[9/16] overflow-hidden rounded-2xl bg-zinc-900 animate-in fade-in zoom-in duration-500">
+                    <img src="${item.thumb}" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute bottom-0 p-4 w-full bg-gradient-to-t from-black">
+                        <p class="text-white text-[10px] font-medium uppercase tracking-wider">${item.title}</p>
                     </div>
                 </div>
             `;
-            grid.innerHTML += card;
-        });
-
-        // Actualizar estados de botones
-        buttons.forEach(btn => {
-            btn.classList.remove('text-white');
-            btn.classList.add('text-zinc-500');
-            const line = btn.querySelector('.active-line');
-            if (line) line.remove();
-        });
-
-        const targetBtn = event ? event.currentTarget : document.querySelector('.tab-link');
-        if (targetBtn) {
-            targetBtn.classList.add('text-white');
-            targetBtn.classList.remove('text-zinc-500');
-            if (!targetBtn.querySelector('.active-line')) {
-                targetBtn.innerHTML += `<div class="active-line absolute bottom-0 left-0 w-full h-[2px] bg-[#B19CD9] shadow-[0_0_10px_#B19CD9]"></div>`;
-            }
         }
-
-        grid.style.opacity = '1';
-    }, 300);
+    }).join('');
 };
 
-// 3. Inicialización
-document.addEventListener('DOMContentLoaded', () => {
-    window.filterGallery('reels', null);
+// 3. Inicialización optimizada para Vite/Dell
+window.addEventListener('load', () => {
+    // Un pequeño delay asegura que el navegador calculó bien los offsetLeft de los botones
+    setTimeout(() => {
+        window.filterGallery('proyectos');
+    }, 100);
 });
