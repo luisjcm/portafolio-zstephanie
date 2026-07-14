@@ -1,13 +1,21 @@
 // src/components/Proyectos.jsx
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { projects } from '../data/content';
 
 export default function Proyectos() {
+  // Estado para controlar qué imágenes han cargado individualmente
+  const [loadedImages, setLoadedImages] = useState({});
+
+  const handleImageLoad = (id) => {
+    setLoadedImages((prev) => ({ ...prev, [id]: true }));
+  };
+
   return (
     <section id="proyectos" className="py-24 relative">
       <div className="max-w-6xl mx-auto px-6">
         
-        {/* Cabecera de la sección */}
+        {/* Cabecera */}
         <div className="mb-16 md:mb-20 text-center md:text-left">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -28,7 +36,7 @@ export default function Proyectos() {
           </motion.h3>
         </div>
 
-        {/* Cuadrícula de Proyectos */}
+        {/* Cuadrícula */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.article 
@@ -37,43 +45,43 @@ export default function Proyectos() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              // Nuevas interacciones unificadas con las Skills
               whileHover={{ y: -8 }}
               whileTap={{ scale: 0.98 }}
-              // Clases actualizadas para el brillo lavanda y el borde
               className="group rounded-2xl bg-brand-surface border border-brand-dark overflow-hidden hover:border-brand-primary hover:shadow-[0_0_30px_rgba(177,156,217,0.15)] transition-all duration-300 flex flex-col cursor-pointer"
             >
-              {/* Contenedor de la Imagen */}
               <div className="aspect-video w-full overflow-hidden relative bg-brand-dark">
-                {/* Overlay oscuro al hacer hover (reducimos un poco la opacidad para que brille más la imagen) */}
-                <div className="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
-                
-                <img 
-                  src={project.imageUrl} 
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = '<div class="absolute inset-0 flex items-center justify-center text-text-secondary text-sm">Añadir imagen en public' + project.imageUrl + '</div>';
-                  }}
-                />
-              </div>
+                {/* Spinner que ahora forzamos a mostrarse */}
+                {!loadedImages[project.id] && (
+                    <div className="absolute inset-0 bg-brand-surface flex items-center justify-center z-10">
+                    <div className="w-8 h-8 border-4 border-brand-primary/20 border-t-brand-primary rounded-full animate-spin"></div>
+                    </div>
+                )}
 
-              {/* Contenido de la Tarjeta */}
+                <img 
+                    src={project.imageUrl} 
+                    alt={project.title}
+                    onLoad={() => handleImageLoad(project.id)}
+                    // Si falla, removemos el spinner y mostramos un color sólido para que no se vea "roto"
+                    onError={(e) => {
+                    e.target.style.display = 'none'; 
+                    // Creamos un div de color para que la tarjeta no pierda su forma
+                    e.target.parentElement.innerHTML = `<div class="w-full h-full bg-brand-primary/20 flex items-center justify-center text-brand-primary/50 text-xs">Sin imagen</div>`;
+                    }}
+                    className={`w-full h-full object-cover transition-opacity duration-500 ${loadedImages[project.id] ? 'opacity-100' : 'opacity-0'}`}
+                />
+                </div>
+
+              {/* Contenido */}
               <div className="p-6 md:p-8 flex flex-col flex-grow relative z-20 bg-brand-surface">
                 <span className="text-brand-primary text-xs font-bold tracking-wider uppercase mb-3">
                   {project.category}
                 </span>
-                
                 <h4 className="text-xl font-serif font-bold text-text-primary mb-3 group-hover:text-brand-primary transition-colors">
                   {project.title}
                 </h4>
-                
                 <p className="text-text-secondary text-sm leading-relaxed mb-6 flex-grow">
                   {project.description}
                 </p>
-
-                {/* Etiquetas (Tags) */}
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {project.tags.map((tag, i) => (
                     <span 
@@ -88,7 +96,6 @@ export default function Proyectos() {
             </motion.article>
           ))}
         </div>
-
       </div>
     </section>
   );
