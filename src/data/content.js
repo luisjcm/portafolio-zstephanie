@@ -1,5 +1,20 @@
 // src/data/content.js
 
+// src/data/content.js
+
+export const navLinks = [
+  { id: 'inicio', title: 'Inicio', href: '#inicio' },
+  { id: 'proyectos', title: 'Proyectos', href: '#proyectos' },
+  { id: 'experiencia', title: 'Experiencia', href: '#experiencia' },
+  { id: 'formacion', title: 'Formación', href: '#formacion' },
+];
+
+export const socialLinks = [
+  { id: 'instagram', label: 'Instagram', url: 'https://instagram.com/tu-usuario' },
+  { id: 'behance', label: 'Behance', url: 'https://behance.net/tu-usuario' },
+  { id: 'linkedin', label: 'LinkedIn', url: 'https://linkedin.com/in/tu-usuario' }
+];
+
 export const heroContent = {
   greeting: "¡Hola! Soy Zstephanie Rodriguez",
   tagline: "Social Media Manager",
