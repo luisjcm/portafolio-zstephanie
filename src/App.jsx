@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Proyectos from './components/Proyectos';
 import Timeline from './components/Timeline';
+import Skills from './components/Skills';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
         <Hero />
         <Proyectos />
         <Timeline />
+        <Skills />
       </main>
 
       <Footer />
