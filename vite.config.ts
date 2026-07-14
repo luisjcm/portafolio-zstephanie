@@ -1,12 +1,14 @@
 import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [
+    react(),
     tailwindcss(),
   ],
   build: {
-    outDir: 'docs', // Aquí cambiamos el nombre de la carpeta de salida
+    outDir: 'docs', 
   },
   base: '/portafolio-zstephanie/'
 })
