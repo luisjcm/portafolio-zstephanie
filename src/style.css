@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+@theme {
+  /* Colores de Marca */
+  --color-brand-dark: #121212;
+  --color-brand-surface: #18181B;
+  --color-brand-primary: #B19CD9;
+  --color-brand-accent: #FFFFFF;
+
+  /* Colores de Texto */
+  --color-text-primary: #E5E5E5;
+  --color-text-secondary: #A1A1AA;
+
+  /* Otros */
+  --color-whatsapp: #25D366;
+
+  /* Tipografía */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Merriweather', serif;
+}
