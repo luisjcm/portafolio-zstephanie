@@ -1,16 +1,27 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
-        'dark-bg': '#121212',
-        'lavender-accent': '#B19CD9', // Un lavanda premium
-        'platinum-text': '#E5E5E5',
+        brand: {
+          dark: '#121212',
+          surface: '#18181B', // Un gris oscuro ideal para tarjetas o secciones destacadas
+          primary: '#B19CD9', // El acento lavanda principal
+          accent: '#FFFFFF',
+        },
+        text: {
+          primary: '#E5E5E5',
+          secondary: '#A1A1AA',
+        },
+        whatsapp: '#25D366'
       },
       fontFamily: {
-        'serif': ['"Playfair Display"', 'serif'], // Para los títulos editoriales
-        'sans': ['"Inter"', 'sans-serif'], // Para el cuerpo limpio
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Merriweather', 'serif'],
       }
     },
   },

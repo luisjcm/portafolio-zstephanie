@@ -130,7 +130,7 @@ window.filterGallery = function(category, event = null) {
         if (item.type === 'text') {
             return `
                 <div class="col-span-full md:col-span-1 bg-zinc-900/50 border border-white/5 p-6 rounded-2xl animate-in fade-in zoom-in duration-500">
-                    <span class="text-[#B19CD9] text-[10px] font-bold uppercase tracking-widest">${item.date}</span>
+                    <span class="text-brand-primary text-[10px] font-bold uppercase tracking-widest">${item.date}</span>
                     <h4 class="text-white text-lg font-semibold mt-1">${item.title}</h4>
                     <p class="text-zinc-500 text-xs mb-3">${item.company}</p>
                     
