@@ -2,6 +2,7 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Proyectos from './components/Proyectos';
+import Timeline from './components/Timeline';
 import Footer from './components/Footer';
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
       <main className="flex-grow pt-20"> 
         <Hero />
         <Proyectos />
+        <Timeline />
       </main>
 
       <Footer />

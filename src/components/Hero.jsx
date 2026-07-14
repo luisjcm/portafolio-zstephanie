@@ -72,7 +72,7 @@ export default function Hero() {
             <img 
               src={heroImg}
               alt="Zstephanie" 
-              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
+              className="w-full h-full object-cover "
               onError={(e) => {
                 // Esto es por si aún no has puesto la imagen, muestra un contenedor elegante en su lugar
                 e.target.style.display = 'none';

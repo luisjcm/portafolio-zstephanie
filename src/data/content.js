@@ -1,4 +1,3 @@
-// src/data/content.js
 
 // src/data/content.js
 
@@ -25,13 +24,29 @@ export const heroContent = {
 export const projects = [
   {
     id: 1,
-    title: "Rebranding Corporativo",
+    title: "Rebranding Corporativo Minimalista",
     category: "Diseño Gráfico",
-    description: "Creación de identidad visual completa, manual de marca y papelería corporativa.",
-    imageUrl: "/proyectos/proyecto1.jpg", // Ruta desde public/
-    tags: ["Canva", "Instagram", "Branding"],
+    description: "Creación de identidad visual completa, manual de marca y paleta de colores para firma de arquitectura.",
+    // Usamos una imagen externa de Unsplash temporalmente
+    imageUrl: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop", 
+    tags: ["Illustrator", "Photoshop", "Branding"],
   },
-  // Añade aquí el resto de los proyectos que tenías en window.galleryData
+  {
+    id: 2,
+    title: "Estrategia de Lanzamiento en Instagram",
+    category: "Social Media",
+    description: "Diseño de grilla, carruseles educativos y guiones para Reels enfocados en conversión para marca de skincare.",
+    imageUrl: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop",
+    tags: ["Canva", "CapCut", "Instagram"],
+  },
+  {
+    id: 3,
+    title: "Producción de Contenido UGC",
+    category: "Contenido Audiovisual",
+    description: "Dirección de arte y edición dinámica de videos cortos para campañas publicitarias en TikTok.",
+    imageUrl: "https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=800&auto=format&fit=crop",
+    tags: ["TikTok", "Edición", "Dirección"],
+  }
 ];
 
 export const experience = [
