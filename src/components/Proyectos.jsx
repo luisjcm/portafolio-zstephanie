@@ -36,14 +36,17 @@ export default function Proyectos() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              // Añadimos un pequeño retraso dinámico (stagger) basado en el índice
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="group rounded-2xl bg-brand-surface border border-brand-dark overflow-hidden hover:border-brand-primary/50 transition-colors duration-300 flex flex-col"
+              // Nuevas interacciones unificadas con las Skills
+              whileHover={{ y: -8 }}
+              whileTap={{ scale: 0.98 }}
+              // Clases actualizadas para el brillo lavanda y el borde
+              className="group rounded-2xl bg-brand-surface border border-brand-dark overflow-hidden hover:border-brand-primary hover:shadow-[0_0_30px_rgba(177,156,217,0.15)] transition-all duration-300 flex flex-col cursor-pointer"
             >
               {/* Contenedor de la Imagen */}
               <div className="aspect-video w-full overflow-hidden relative bg-brand-dark">
-                {/* Overlay oscuro al hacer hover */}
-                <div className="absolute inset-0 bg-brand-dark/20 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
+                {/* Overlay oscuro al hacer hover (reducimos un poco la opacidad para que brille más la imagen) */}
+                <div className="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
                 
                 <img 
                   src={project.imageUrl} 
@@ -57,7 +60,7 @@ export default function Proyectos() {
               </div>
 
               {/* Contenido de la Tarjeta */}
-              <div className="p-6 md:p-8 flex flex-col flex-grow">
+              <div className="p-6 md:p-8 flex flex-col flex-grow relative z-20 bg-brand-surface">
                 <span className="text-brand-primary text-xs font-bold tracking-wider uppercase mb-3">
                   {project.category}
                 </span>
@@ -75,7 +78,7 @@ export default function Proyectos() {
                   {project.tags.map((tag, i) => (
                     <span 
                       key={i} 
-                      className="px-3 py-1 text-[11px] font-medium tracking-wide text-text-secondary bg-brand-dark rounded-full border border-brand-primary/10"
+                      className="px-3 py-1 text-[11px] font-medium tracking-wide text-text-secondary bg-brand-dark rounded-full border border-brand-primary/10 group-hover:border-brand-primary/30 transition-colors"
                     >
                       {tag}
                     </span>
