@@ -5,7 +5,6 @@ import { client, urlFor } from '../client';
 import { Link } from 'react-router-dom';
 
 export default function Proyectos() {
-  // Estado para controlar qué imágenes han cargado individualmente
   const [loadedImages, setLoadedImages] = useState({});
   const [proyectos, setProyectos] = useState([]);
 
@@ -14,8 +13,8 @@ export default function Proyectos() {
   };
 
   useEffect(() => {
-    // Consulta GROQ: Trae todo lo de tipo 'project'
-    const query = '*[_type == "project"]';
+    // Consulta GROQ: Trae los proyectos y los ordena por el más nuevo primero
+    const query = '*[_type == "project"] | order(_createdAt desc)';
 
     client.fetch(query)
       .then((data) => {
@@ -54,7 +53,7 @@ export default function Proyectos() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {proyectos.map((project, index) => (
             <motion.article 
-              key={project._id} // Sanity usa _id
+              key={project._id} 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -66,29 +65,32 @@ export default function Proyectos() {
 
               <Link to={`/proyectos/${project.slug.current}`} className="flex flex-col h-full" aria-label={`Ver detalles de ${project.title}`}>
               <div className="aspect-video w-full overflow-hidden relative bg-brand-dark">
-                {/* Spinner */}
-                {!loadedImages[project._id] && (
+                
+                {/* Spinner condicionado: Solo gira si HAY imagen principal pero aún no carga */}
+                {project.mainImages && project.mainImages[0] && !loadedImages[project._id] && (
                     <div className="absolute inset-0 bg-brand-surface flex items-center justify-center z-10">
                       <div className="w-8 h-8 border-4 border-brand-primary/20 border-t-brand-primary rounded-full animate-spin"></div>
                     </div>
                 )}
 
-                <img 
-                  // Usamos urlFor solo si project.logo existe para evitar errores
-                  src={project.logo ? urlFor(project.logo).url() : ''} 
-                  alt={project.title}
-                  onLoad={() => handleImageLoad(project._id)}
-                  onError={(e) => {
-                    e.target.style.display = 'none'; 
-                    e.target.parentElement.innerHTML = `<div class="w-full h-full bg-brand-primary/20 flex items-center justify-center text-brand-primary/50 text-xs">Sin imagen</div>`;
-                  }}
-                  className={`w-full h-full object-cover transition-opacity duration-500 ${loadedImages[project._id] ? 'opacity-100' : 'opacity-0'}`}
-                />
+                {/* Renderizado condicionado de la imagen */}
+                {project.mainImages && project.mainImages[0] ? (
+                  <img 
+                    src={urlFor(project.mainImages[0]).url()} 
+                    alt={project.title}
+                    onLoad={() => handleImageLoad(project._id)}
+                    className={`w-full h-full object-cover transition-opacity duration-500 ${loadedImages[project._id] ? 'opacity-100' : 'opacity-0'}`}
+                  />
+                ) : (
+                  // Fallback por si el proyecto no tiene imágenes cargadas aún
+                  <div className="w-full h-full flex items-center justify-center bg-brand-dark text-brand-primary/50 text-xs font-serif">
+                    Sin portada
+                  </div>
+                )}
               </div>
 
               {/* Contenido */}
               <div className="p-6 md:p-8 flex flex-col flex-grow relative z-20 bg-brand-surface">
-                {/* Eliminamos temporalmente category porque no está en el CMS */}
                 <h4 className="text-xl font-serif font-bold text-text-primary mb-3 group-hover:text-brand-primary transition-colors mt-2">
                   {project.title}
                 </h4>
@@ -96,7 +98,6 @@ export default function Proyectos() {
                   {project.description}
                 </p>
                 
-                {/* Condicionamos los tags por si decides agregarlos al CMS más adelante */}
                 {project.tags && (
                   <div className="flex flex-wrap gap-2 mt-auto">
                     {project.tags.map((tag, i) => (
