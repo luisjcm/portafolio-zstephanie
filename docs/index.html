@@ -1,231 +1,29 @@
-
-    <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
-<head>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zullymar Rodríguez | Digital Content Producer</title>
-    <meta name="referrer" content="no-referrer">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <script type="module" crossorigin src="/portafolio-zstephanie/assets/index-C6qqSgU5.js"></script>
-  <link rel="stylesheet" crossorigin href="/portafolio-zstephanie/assets/index-B-m8uvy5.css">
-</head>
-<body class="bg-brand-dark text-text-primary font-sans selection:bg-brand-primary/30 selection:text-brand-primary">
-
-    <header class="fixed top-0 w-full z-50 backdrop-blur-md bg-brand-dark/70 border-b border-white/5">
-        <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            <span class="font-serif text-xl tracking-widest uppercase">ZR</span>
-            
-            <div class="hidden md:flex gap-8 text-xs uppercase tracking-widest font-semibold text-zinc-400">
-                <a href="#proyectos" class="hover:text-brand-primary transition-colors">Proyectos</a>
-                <a href="#marcas" class="hover:text-brand-primary transition-colors">Marcas</a>
-                <a href="#contacto" class="hover:text-brand-primary transition-colors">Contacto</a>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section class="min-h-[80vh] flex flex-col justify-center px-6 pt-20 md:pt-24 pb-20 max-w-5xl mx-auto w-full">
-            
-            
-            <div class="flex items-center gap-4 mb-6">
-                <div class="relative shrink-0 w-20 h-20 md:w-32 md:h-32 rounded-full border border-[#B19CD9]/30 overflow-hidden">
-                    <img src="/portafolio-zstephanie/assets/perfil-BHR4muqn.jpeg" class="w-full h-full object-cover scale-200 origin-[50%_1%]" alt="Zullymar">
-                </div>
-
-                <div class="flex flex-col gap-1">
-                    <h2 class="font-serif text-xl md:text-5xl text-white leading-tight">
-                        Zullymar S. <span class="text-zinc-500">Rodriguez</span>
-                    </h2>
-                    <p class="text-[10px] text-brand-primary/60 tracking-widest uppercase">@zstephanie</p>
-                        <div class="flex items-center gap-1.5 px-2 py-1 rounded-full bg-brand-primary/10 border border-[#B19CD9]/20 w-fit">
-                            <span class="relative flex h-1.5 w-1.5">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-primary"></span>
-                            </span>
-                            <span class="text-[8px] md:text-[10px] text-brand-primary font-bold uppercase tracking-tighter">Disponible para proyectos</span>
-                        </div>
-                </div>
-            </div>
-            
-          <!-- 
-            
-Habilidades destacadas con íconos SVG personalizados, animados al aparecer, y con efectos de hover para resaltar cada habilidad.
-            
-                      --->
-
-                     <div class="grid grid-cols-4 md:grid-cols-4 gap-4 md:gap-6 mt-1 mb-4 md:mt- md:mb-6 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-500 w-full">
+    <!-- SEO Básico -->
+    <title>Zstephanie | Diseño Gráfico y Marketing Digital</title>
+    <meta name="description" content="Portafolio de Zstephanie. Especialista en diseño gráfico, marketing digital y creación de identidades visuales memorables.">
     
-                        <div class="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3 group">
-                            <div class="text-brand-primary group-hover:scale-110 transition-transform duration-300 shrink-0">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                            </div>
-                            <h3 class="text-text-primary font-medium text-[8px] md:text-[10px] uppercase tracking-widest text-center md:text-left leading-tight">
-                                Diseño de Contenido <br class="hidden md:block"> Estratégico
-                            </h3>
-                        </div>
+    <!-- Open Graph (Redes Sociales y WhatsApp) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Zstephanie | Diseño Gráfico" />
+    <meta property="og:description" content="Descubre mis proyectos de diseño y marketing digital." />
+    <!-- Cuando tengas la imagen oficial del portafolio, la pones en public/ y actualizas esta ruta -->
+    <meta property="og:image" content="https://tu-dominio.com/og-image.jpg" /> 
 
-                        <div class="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3 group border-l border-white/5 md:border-none pl-2 md:pl-0">
-                            <div class="text-brand-primary group-hover:scale-110 transition-transform duration-300 shrink-0">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.934a.5.5 0 0 0-.777-.416L16 11"></path><rect x="2" y="6" width="14" height="12" rx="2"></rect></svg>
-                            </div>
-                            <h3 class="text-text-primary font-medium text-[8px] md:text-[10px] uppercase tracking-widest text-center md:text-left leading-tight">
-                                Edición de Video <br class="hidden md:block"> (Reels y TikTok)
-                            </h3>
-                        </div>
+    <!-- Aquí puedes dejar tus enlaces a Google Fonts si estabas usando Merriweather/Inter -->
+    <script type="module" crossorigin src="/assets/index-BVAdp_RA.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-ZA2wTxqS.css">
+  </head>
 
-                        <div class="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3 group">
-                            <div class="text-brand-primary group-hover:scale-110 transition-transform duration-300 shrink-0">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-                            </div>
-                            <h3 class="text-text-primary font-medium text-[8px] md:text-[10px] uppercase tracking-widest text-center md:text-left leading-tight">
-                                Narrativa Visual <br class="hidden md:block"> y Storytelling
-                            </h3>
-                        </div>
-
-                        <div class="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-3 group border-l border-white/5 md:border-none pl-2 md:pl-0">
-                            <div class="text-brand-primary group-hover:scale-110 transition-transform duration-300 shrink-0">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7"></path><path d="M16 19h6"></path><path d="M19 16v6"></path></svg>
-                            </div>
-                            <h3 class="text-text-primary font-medium text-[8px] md:text-[10px] uppercase tracking-widest text-center md:text-left leading-tight">
-                                Estrategia de <br class="hidden md:block"> Comunicación
-                            </h3>
-                        </div>
-                    </div>
-
-<!--
-
-Descripcion BIO
-
-                      -->
-
-            <p class="font-sans text-xs md:text-base text-zinc-400 w-full leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 text-justify md:text-justify">
-                Productora de Contenido Digital y Diseñadora, soy T.S.U. en Audiovisuales. Especialista en creación de contenido estratégico, diseño de carruseles de alto impacto y edición de Reels dinámicos. Experta en transformar conceptos complejos en piezas visuales atractivas con Canva y CapCut, garantizando estética, coherencia y resultados para diversas marcas.
-            </p>
-
-
-
-
-
-
-<div class="flex flex-row items-center gap-2 mt-6  animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-700 w-full md:max-w-2xl">
+  <body class="antialiased bg-brand-dark text-text-primary selection:bg-brand-primary selection:text-white">
+    <!-- Aquí es donde React inyectará toda la aplicación mágicamente -->
+    <div id="root"></div>
     
-    <a href="https://wa.me/584126099909?text=Hola%20Zullymar..." 
-       rel="noopener noreferrer"
-       target="_blank"
-       class="group relative flex-[0.8] md:flex-1 py-3 bg-white/5 border border-white/10 rounded-xl font-semibold text-white text-[10px] md:text-xs font-semibold  tracking-tight overflow-hidden transition-all duration-300 hover:border-[#B19CD9]/50 hover:bg-brand-primary/5 text-center backdrop-blur-sm active:scale-95 no-underline flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(177,156,217,0.2)]">
-        
-        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-[#B19CD9]/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-        
-        <span class="relative flex items-center justify-center gap-1.5">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-brand-primary">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-            </svg>
-            Contactar
-        </span>
-    </a>
-
-              <button 
-              onclick="showComingSoonToast()" 
-              class="group flex-[1.2] md:flex-1 py-3 px-2 bg-zinc-900 border border-zinc-800 rounded-xl active:scale-95 flex items-center justify-center gap-2 transition-all hover:border-[#B19CD9]/40 hover:bg-zinc-800/50">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-brand-primary">
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                </svg>
-                <span class="text-white text-[10px] md:text-xs  tracking-tight font-medium   text-nowrap">Video Presentación</span>
-            </button>
-
-    <div class="flex gap-1.5">
-        <a href="#" target="_blank" rel="noopener noreferrer" class="p-3 bg-white/5 border border-white/10 rounded-xl text-zinc-400 hover:text-brand-primary hover:border-[#B19CD9]/30 transition-all active:scale-90 flex items-center justify-center hover:shadow-[0_0_20px_rgba(177,156,217,0.2)]">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-        <a href="https://linkedin.com/in/zullymar-rodriguez" target=" _blank" rel="noopener noreferrer" class="p-3 bg-white/5 border border-white/10 rounded-xl text-zinc-400 hover:text-brand-primary hover:border-[#B19CD9]/30 transition-all active:scale-90 flex items-center justify-center hover:shadow-[0_0_20px_rgba(177,156,217,0.2)]">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-    </div>
-</div>
-
-
-        <!-- Proyectos Section -->
-
-              <section id="proyectos" class="mt-8 max-w-5xl mx-auto px-6 pb-10">
-                <div class="relative flex justify-center gap-4 md:gap-8 mb-8 border-b border-white/5">
-                
-                <button onclick="filterGallery('proyectos', event)" 
-                    class="tab-link active group relative pb-4 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-white transition-all ">
-                    Proyectos
-                    <span class="active-indicator absolute bottom-0 left-0 w-full h-[2px] bg-brand-primary shadow-[0_0_10px_#B19CD9] transition-all duration-300 scale-x-100 opacity-100 group-hover:scale-x-50 group-hover:opacity-50"></span>
-                </button>
-
-                <button onclick="filterGallery('experiencia', event)" 
-                    class="tab-link group relative pb-4 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 hover:text-zinc-300 transition-all">
-                    Experiencia
-                    <span class="active-indicator absolute bottom-0 left-0 w-full h-[2px] bg-brand-primary shadow-[0_0_10px_#B19CD9] transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-50 group-hover:opacity-50"></span>
-                </button>
-
-                <button onclick="filterGallery('formacion', event)" 
-                    class="tab-link group relative pb-4 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 hover:text-zinc-300 transition-all">
-                    Formación
-                    <span class="active-indicator absolute bottom-0 left-0 w-full h-[2px] bg-brand-primary shadow-[0_0_10px_#B19CD9] transition-all duration-300 scale-x-0 opacity-0 group-hover:scale-x-50 group-hover:opacity-50"></span>
-                </button>
-            </div>
-
-    <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4 transition-opacity duration-500"></div>
-</section>
-    </main>
-
-  <footer class="mt-20 py-12 border-t border-white/5 bg-brand-dark">
-    <div class="max-w-5xl mx-auto px-6 flex justify-center">
-        
-        <div class="w-full flex flex-col items-center md:flex-row justify-between md:items-center gap-8">
-            
-            <div class="flex flex-col items-center md:items-start gap-1 text-center md:text-left">
-                <h4 class="text-white font-bold text-sm md:text-base uppercase tracking-wider">
-                    Zullymar Rodriguez
-                </h4>
-                <p class="text-zinc-600 text-[10px] md:text-xs uppercase tracking-widest font-medium">
-                    Productora de Contenido & Diseñadora
-                </p>
-            </div>
-
-            <div class="flex flex-col items-center md:items-end gap-4">
-                <div class="flex flex-wrap justify-center items-center gap-6 text-[11px] font-bold text-zinc-400 uppercase tracking-widest">
-                    <a href="..." class="hover:text-brand-primary transition-colors">Linkedin</a>
-                    <a href="..." class="hover:text-brand-primary transition-colors">Instagram</a>
-                    
-                    <div class="flex items-center gap-2 px-3 py-1 bg-brand-primary/5 border border-[#B19CD9]/20 rounded-md">
-                        <span class="w-1.5 h-1.5 rounded-full bg-brand-primary shadow-[0_0_8px_rgba(177,156,217,0.6)]"></span>
-                        <span class="text-[9px] text-brand-primary/90 font-mono">BUILD v.1.0.0</span>
-                    </div>
-                </div>
-
-                <p class="text-[10px] text-zinc-600 uppercase tracking-tighter text-center md:text-right">
-                    © 2026 / DESARROLLADO POR <span class="text-zinc-400">LUISJCM</span>
-                </p>
-            </div>
-
-        </div>
-    </div>
-</footer>
-
-
-    <!-- Toast Notificacion-->
-
-              <div id="toast-container" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] pointer-events-none">
-                <div id="toast" class="opacity-0 translate-y-10 transition-all duration-500 bg-zinc-900/90 backdrop-blur-md border border-[#B19CD9]/30 px-12 py-3 rounded-full shadow-[0_10px_30px_rgba(177,156,217,0.15)] flex items-center gap-3 min-w-[350px]">
-                        <div class="text-brand-primary shrink-0">
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                              <circle cx="12" cy="12" r="10"></circle>
-                              <line x1="12" y1="16" x2="12" y2="12"></line>
-                              <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                          </svg>
-                      </div>
-                    <p class="text-white text-[12px] md:text-xs font-medium">Contenido en producción... muy pronto estará disponible</p>
-                </div>
-            </div>
-
+    <!-- El script que arranca React -->
   </body>
 </html>
