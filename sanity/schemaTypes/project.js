@@ -50,7 +50,7 @@ export default defineType({
       description: 'Sube una o varias imágenes. Si es Carrusel, se mostrarán con flechas.',
       type: 'array',
       of: [{ type: 'image', options: { hotspot: true } }],
-      hidden: ({document}) => document?.mediaType === 'reel',
+      //hidden: ({document}) => document?.mediaType === 'reel',
     }),
     
     // Este campo solo aparece si elige Reel
