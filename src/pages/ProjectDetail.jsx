@@ -9,6 +9,11 @@ export default function ProjectDetail() {
   const [loading, setLoading] = useState(true);
   const [currentIdx, setCurrentIdx] = useState(0);
 
+  // --- ESTADOS DEL VISOR PREMIUM (LIGHTBOX) ---
+  const [isViewerOpen, setIsViewerOpen] = useState(false);
+  const [viewerImages, setViewerImages] = useState([]);
+  const [activeImgIdx, setActiveImgIdx] = useState(0);
+
   useEffect(() => {
     const query = `*[_type == "project" && slug.current == $slug][0]{
       ...,
@@ -41,6 +46,15 @@ export default function ProjectDetail() {
   const nextImage = () => { if (validMainImages.length > 0) setCurrentIdx((prev) => (prev + 1) % validMainImages.length); };
   const prevImage = () => { if (validMainImages.length > 0) setCurrentIdx((prev) => (prev - 1 + validMainImages.length) % validMainImages.length); };
 
+  // --- FUNCIONES DEL VISOR PREMIUM ---
+  const openViewer = (imagesList, index) => {
+    setViewerImages(imagesList);
+    setActiveImgIdx(index);
+    setIsViewerOpen(true);
+  };
+  const nextViewerImg = () => { setActiveImgIdx((prev) => (prev + 1) % viewerImages.length); };
+  const prevViewerImg = () => { setActiveImgIdx((prev) => (prev - 1 + viewerImages.length) % viewerImages.length); };
+
   const containerVariants = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.15 } } };
   const itemVariants = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } };
 
@@ -62,12 +76,18 @@ export default function ProjectDetail() {
           {/* LAYOUT DE PANTALLA DIVIDIDA (SPLIT SCREEN) */}
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 mb-24">
             
-            {/* COLUMNA IZQUIERDA: MULTIMEDIA (Se expande fluidamente) */}
-            <div className="w-full lg:w-7/12 order-2 lg:order-1 flex flex-col gap-8">
+            {/* COLUMNA IZQUIERDA: MULTIMEDIA */}
+            {/* Ajuste menor: Cambié el order en móvil para que la imagen siempre quede arriba del texto */}
+            <div className="w-full lg:w-7/12 order-1 lg:order-1 flex flex-col gap-8">
               
               {project.mediaType === 'image' && validMainImages[0] && (
                 <motion.div variants={itemVariants} className="w-full rounded-2xl overflow-hidden shadow-lg border border-brand-dark bg-brand-surface/30">
-                  <img src={urlFor(validMainImages[0]).url()} alt={project.title} className="w-full h-auto object-cover" />
+                  <img 
+                    src={urlFor(validMainImages[0]).url()} 
+                    alt={project.title} 
+                    onClick={() => openViewer(validMainImages, 0)} // <-- Visor añadido
+                    className="w-full h-auto object-cover cursor-zoom-in hover:opacity-95 transition-opacity" 
+                  />
                 </motion.div>
               )}
 
@@ -78,7 +98,8 @@ export default function ProjectDetail() {
                       key={currentIdx}
                       src={urlFor(validMainImages[currentIdx]).url()} 
                       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}
-                      className="w-full h-full object-cover absolute inset-0"
+                      onClick={() => openViewer(validMainImages, currentIdx)} // <-- Visor añadido
+                      className="w-full h-full object-cover absolute inset-0 cursor-zoom-in"
                     />
                   </AnimatePresence>
                   
@@ -105,8 +126,12 @@ export default function ProjectDetail() {
                   <h4 className="text-text-secondary text-sm font-bold tracking-widest uppercase mb-6">Versiones de Marca</h4>
                   <div className="grid grid-cols-2 gap-4">
                     {validLogos.map((logo, index) => (
-                      <div key={index} className="bg-brand-surface/40 backdrop-blur-sm rounded-xl p-6 border border-brand-dark flex items-center justify-center aspect-square hover:border-brand-primary/40 transition-colors">
-                        <img src={urlFor(logo).url()} alt={`Logo ${index + 1}`} className="max-w-full max-h-full object-contain filter drop-shadow-md" />
+                      <div 
+                        key={index} 
+                        onClick={() => openViewer(validLogos, index)} // <-- Visor añadido a los modelos
+                        className="bg-brand-surface/40 backdrop-blur-sm rounded-xl p-6 border border-brand-dark flex items-center justify-center aspect-square hover:border-brand-primary/40 transition-colors cursor-zoom-in"
+                      >
+                        <img src={urlFor(logo).url()} alt={`Logo ${index + 1}`} className="max-w-full max-h-full object-contain filter drop-shadow-md hover:scale-105 transition-transform" />
                       </div>
                     ))}
                   </div>
@@ -115,7 +140,8 @@ export default function ProjectDetail() {
             </div>
 
             {/* COLUMNA DERECHA: TEXTO E INFO (Sticky en Desktop) */}
-            <div className="w-full lg:w-5/12 order-1 lg:order-2">
+            {/* Ajuste menor: En móvil ahora queda debajo de la imagen (order-2) */}
+            <div className="w-full lg:w-5/12 order-2 lg:order-2">
               <div className="lg:sticky lg:top-32 h-fit flex flex-col gap-8">
                 
                 <header>
@@ -154,7 +180,11 @@ export default function ProjectDetail() {
               
               <div className="grid grid-cols-3 gap-1 md:gap-3 max-w-5xl mx-auto">
                 {validGallery.map((image, index) => (
-                  <div key={index} className="aspect-square bg-brand-surface overflow-hidden group cursor-pointer relative rounded-sm md:rounded-md">
+                  <div 
+                    key={index} 
+                    onClick={() => openViewer(validGallery, index)} // <-- Visor añadido
+                    className="aspect-square bg-brand-surface overflow-hidden group cursor-zoom-in relative rounded-sm md:rounded-md"
+                  >
                     <div className="absolute inset-0 bg-brand-primary/0 group-hover:bg-brand-primary/20 transition-colors duration-300 z-10 mix-blend-overlay"></div>
                     <img 
                       src={urlFor(image).url()} 
@@ -169,6 +199,61 @@ export default function ProjectDetail() {
           
         </motion.div>
       </div>
+
+      {/* --- COMPONENTE DEL VISOR PREMIUM (LIGHTBOX) --- */}
+      <AnimatePresence>
+        {isViewerOpen && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-4"
+          >
+            <div className="flex justify-between items-center max-w-6xl w-full mx-auto p-2 md:p-4 z-20">
+              <span className="text-xs font-bold tracking-widest text-text-secondary uppercase">
+                {activeImgIdx + 1} de {viewerImages.length}
+              </span>
+              <button 
+                onClick={() => setIsViewerOpen(false)}
+                className="text-white hover:text-brand-primary transition-colors text-3xl font-light p-2 cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="relative flex-1 flex items-center justify-center max-w-5xl mx-auto w-full h-[60vh] px-2 md:px-10">
+              {viewerImages.length > 1 && (
+                <button onClick={prevViewerImg} className="absolute left-2 md:left-4 z-20 w-10 h-10 rounded-full bg-brand-surface/40 hover:bg-brand-primary hover:text-brand-dark text-white flex items-center justify-center transition-all border border-white/10 active:scale-95">←</button>
+              )}
+              
+              <motion.img 
+                key={activeImgIdx}
+                src={urlFor(viewerImages[activeImgIdx]).url()} 
+                initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.97 }} transition={{ duration: 0.25 }}
+                className="max-w-full max-h-[65vh] object-contain rounded shadow-2xl select-none"
+              />
+
+              {viewerImages.length > 1 && (
+                <button onClick={nextViewerImg} className="absolute right-2 md:right-4 z-20 w-10 h-10 rounded-full bg-brand-surface/40 hover:bg-brand-primary hover:text-brand-dark text-white flex items-center justify-center transition-all border border-white/10 active:scale-95">→</button>
+              )}
+            </div>
+
+            {viewerImages.length > 1 && (
+              <div className="w-full max-w-2xl mx-auto mt-4 overflow-x-auto pb-4 flex justify-center gap-2" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                {viewerImages.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveImgIdx(idx)}
+                    className={`flex-shrink-0 w-12 h-12 rounded overflow-hidden border-2 transition-all ${idx === activeImgIdx ? 'border-brand-primary scale-105' : 'border-transparent opacity-40 hover:opacity-100'}`}
+                  >
+                    <img src={img?.asset ? urlFor(img).url() : ''} className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }

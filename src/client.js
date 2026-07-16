@@ -1,4 +1,3 @@
-//cct5ob70
 
 import { createClient } from '@sanity/client';
 import createImageUrlBuilder from '@sanity/image-url';

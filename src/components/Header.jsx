@@ -12,13 +12,7 @@ export default function Header() {
       {/* Detalle Senior: Si el menú está abierto, el fondo es sólido (bg-brand-dark) y sin borde.
         Si está cerrado, mantiene su efecto cristal (backdrop-blur-md).
       */}
-      <header 
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isMenuOpen 
-            ? 'bg-brand-dark border-transparent' 
-            : 'bg-brand-dark/80 backdrop-blur-md border-b border-brand-surface'
-        }`}
-      >
+      <header className="fixed top-0 w-full z-50 bg-brand-dark/80 backdrop-blur-md border-b border-brand-surface transition-all duration-300">
         <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
           
           <a 
