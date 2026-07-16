@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { client, urlFor } from '../client';
+import { Link } from 'react-router-dom';
 
 export default function Proyectos() {
   // Estado para controlar qué imágenes han cargado individualmente
@@ -62,6 +63,8 @@ export default function Proyectos() {
               whileTap={{ scale: 0.98 }}
               className="group rounded-2xl bg-brand-surface border border-brand-dark overflow-hidden hover:border-brand-primary hover:shadow-[0_0_30px_rgba(177,156,217,0.15)] transition-all duration-300 flex flex-col cursor-pointer"
             >
+
+              <Link to={`/proyectos/${project.slug.current}`} className="flex flex-col h-full" aria-label={`Ver detalles de ${project.title}`}>
               <div className="aspect-video w-full overflow-hidden relative bg-brand-dark">
                 {/* Spinner */}
                 {!loadedImages[project._id] && (
@@ -107,6 +110,7 @@ export default function Proyectos() {
                   </div>
                 )}
               </div>
+              </Link>
             </motion.article>
           ))}
         </div>

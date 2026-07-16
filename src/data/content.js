@@ -17,7 +17,7 @@ export const socialLinks = [
 export const heroContent = {
   greeting: "¡Hola! Soy Zstephanie Rodriguez",
   tagline: "Social Media Manager",
-  description: "Productora de Contenido Digital y Diseñadora, soy T.S.U. en Audiovisuales. Especialista en creación de contenido estratégico, diseño de carruseles de alto impacto y edición de Reels dinámicos. Experta en transformar conceptos complejos en piezas visuales atractivas con Canva y CapCut, garantizando estética, coherencia y resultados para diversas marcas.",
+  description: "Productora de Contenido Digital y Diseñadora, profesional egresada en Ciencias Audiovisuales y Fotografìa. Especialista en creación de contenido estratégico, diseño de carruseles de alto impacto y edición de Reels dinámicos. Experta en transformar conceptos complejos en piezas visuales atractivas con Canva y CapCut, garantizando estética, coherencia y resultados para diversas marcas.",
   whatsappUrl: "https://wa.me/+584126099909",
 };
 

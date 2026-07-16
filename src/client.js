@@ -1,7 +1,7 @@
 //cct5ob70
 
 import { createClient } from '@sanity/client';
-import imageUrlBuilder from '@sanity/image-url';
+import createImageUrlBuilder from '@sanity/image-url';
 
 export const client = createClient({
   projectId: 'cct5ob70',
@@ -11,5 +11,5 @@ export const client = createClient({
 });
 
 // Esta función nos servirá más adelante para extraer las URLs de las imágenes
-const builder = imageUrlBuilder(client);
+const builder = createImageUrlBuilder(client);
 export const urlFor = (source) => builder.image(source);
