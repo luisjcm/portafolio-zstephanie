@@ -9,6 +9,8 @@ import Skills from './components/Skills';
 import Footer from './components/Footer';
 
 import ProjectDetail from './pages/ProjectDetail';
+import NotFound from './pages/NotFound';
+
 
 export default function App() {
   return (
@@ -31,8 +33,9 @@ export default function App() {
           </>
                 }
         />
-
         <Route path="/proyectos/:slug" element={<ProjectDetail />} />
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
     </div>
