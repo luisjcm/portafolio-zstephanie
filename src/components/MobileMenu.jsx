@@ -1,7 +1,6 @@
 // src/components/MobileMenu.jsx
 import { motion, AnimatePresence } from 'framer-motion';
 import { navLinks } from '../data/content';
-import MobileMenu from './MobileMenu';
 
 export default function MobileMenu({ isOpen, onClose }) {
   return (

@@ -13,6 +13,8 @@
     "vite": "^8.0.10"
   },
   "dependencies": {
+    "@sanity/client": "^7.23.1",
+    "@sanity/image-url": "^2.1.1",
     "@tailwindcss/vite": "^4.2.4",
     "framer-motion": "^12.42.2",
     "react": "^19.2.7",
