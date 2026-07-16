@@ -16,6 +16,15 @@ export default function Proyectos() {
     client.fetch(query)
       .then((data) => setProyectos(data))
       .catch((error) => console.error("Error trayendo proyectos:", error));
+
+    if (window.location.hash === '#proyectos') {
+      setTimeout(() => {
+        const elemento = document.getElementById('proyectos');
+        if (elemento) {
+          elemento.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 150);
+    }
   }, []);
 
   return (
@@ -31,10 +40,6 @@ export default function Proyectos() {
           </motion.h3>
         </div>
 
-        {/* ¡El cambio Mágico! 
-          grid-cols-2 en móvil, grid-cols-2 en tablet, grid-cols-3 en escritorio.
-          gap-4 en móvil para que no queden tan separadas, gap-8 en desktop.
-        */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8">
           {proyectos.map((project, index) => (
             <motion.article 
@@ -49,32 +54,40 @@ export default function Proyectos() {
             >
               <Link to={`/proyectos/${project.slug.current}`} className="flex flex-col h-full" aria-label={`Ver detalles de ${project.title}`}>
                 
-                {/* Imagen (Mantiene relación de aspecto 16:9 en desktop, y se adapta en móvil) */}
-                <div className="aspect-square md:aspect-video w-full overflow-hidden relative bg-brand-dark">
+                <div className="aspect-square md:aspect-video w-full overflow-hidden relative bg-brand-dark flex items-center justify-center">
+                  
                   {project.mainImages && project.mainImages[0] && !loadedImages[project._id] && (
-                      <div className="absolute inset-0 bg-brand-surface flex items-center justify-center z-10">
+                      <div className="absolute inset-0 bg-brand-surface flex items-center justify-center z-20">
                         <div className="w-6 h-6 md:w-8 md:h-8 border-4 border-brand-primary/20 border-t-brand-primary rounded-full animate-spin"></div>
                       </div>
                   )}
 
                   {project.mainImages && project.mainImages[0] ? (
-                    <img 
-                      src={urlFor(project.mainImages[0]).url()} 
-                      alt={project.title}
-                      onLoad={() => handleImageLoad(project._id)}
-                      className={`w-full h-full object-cover transition-opacity duration-500 ${loadedImages[project._id] ? 'opacity-100' : 'opacity-0'}`}
-                    />
+                    <>
+                      {/* 1. EL FONDO DIFUMINADO (Ambient Background) */}
+                      <img 
+                        src={urlFor(project.mainImages[0]).width(400).url()} // Pedimos una versión más pequeña a Sanity para optimizar
+                        alt=""
+                        className={`absolute inset-0 w-full h-full object-cover scale-110 blur-xl opacity-80 transition-opacity duration-700 ${loadedImages[project._id] ? 'opacity-40' : 'opacity-0'}`}
+                      />
+                      
+                      {/* 2. LA IMAGEN REAL (Sin recortes, encima del fondo) */}
+                      <img 
+                        src={urlFor(project.mainImages[0]).url()} 
+                        alt={project.title}
+                        onLoad={() => handleImageLoad(project._id)}
+                        className={`relative z-10 w-full h-full object-contain p-2 md:p-4 drop-shadow-2xl transition-all duration-700 group-hover:scale-105 ${loadedImages[project._id] ? 'opacity-100' : 'opacity-0'}`}
+                      />
+                    </>
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-brand-dark text-brand-primary/50 text-[10px] md:text-xs font-serif">Sin portada</div>
+                    <div className="w-full h-full flex items-center justify-center bg-brand-dark text-brand-primary/50 text-[10px] md:text-xs font-serif z-10">Sin portada</div>
                   )}
                 </div>
 
-                {/* Contenido (Textos adaptables) */}
-                <div className="p-3 md:p-6 flex flex-col flex-grow relative z-20 bg-brand-surface">
+                <div className="p-3 md:p-6 flex flex-col flex-grow relative z-20 bg-brand-surface border-t border-brand-dark/50">
                   <h4 className="text-sm md:text-xl font-serif font-bold text-text-primary mb-1 md:mb-3 group-hover:text-brand-primary transition-colors line-clamp-1 md:line-clamp-none">
                     {project.title}
                   </h4>
-                  {/* En móvil truncamos la descripción a 2 líneas para que no rompa la tarjeta */}
                   <p className="text-text-secondary text-[11px] md:text-sm leading-relaxed mb-3 md:mb-6 flex-grow line-clamp-2 md:line-clamp-3">
                     {project.description}
                   </p>
