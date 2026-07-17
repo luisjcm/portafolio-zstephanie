@@ -72,20 +72,20 @@ export default function Footer() {
               <h4 className="text-sm font-bold tracking-[0.15em] uppercase text-text-primary mb-6 border-b border-brand-primary/40 pb-3">
                 Síguenos
               </h4>
-              <div className="flex justify-center md:justify-start gap-4">
-                {socialLinks.map((social) => (
-                  <a 
-                    key={social.id}
-                    href={social.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="w-10 h-10 rounded-full border border-brand-primary/30 bg-brand-dark flex items-center justify-center text-text-secondary hover:bg-brand-primary hover:text-brand-dark transition-all duration-300"
-                    aria-label={social.label}
-                  >
-                    <span className="font-bold text-xs">{social.label.charAt(0)}</span>
-                  </a>
-                ))}
-              </div>
+              
+                  <div className="flex gap-4">
+                        {/* Reemplazamos <a> por <div role="button"> o <button> */}
+                        <button className="w-10 h-10 rounded-full border border-text-secondary/20 flex items-center justify-center text-text-secondary hover:border-brand-primary hover:text-brand-primary transition-colors cursor-default">
+                          I
+                        </button>
+                        <button className="w-10 h-10 rounded-full border border-text-secondary/20 flex items-center justify-center text-text-secondary hover:border-brand-primary hover:text-brand-primary transition-colors cursor-default">
+                          B
+                        </button>
+                        <button className="w-10 h-10 rounded-full bg-brand-primary text-brand-dark flex items-center justify-center font-bold cursor-default">
+                          L
+                        </button>
+                      </div>
+                  
             </div>
           </div>
 

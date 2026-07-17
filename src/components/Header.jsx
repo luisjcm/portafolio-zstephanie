@@ -34,16 +34,24 @@ export default function Header() {
               </a>
             ))}
           </nav>
-
-          <div className="flex items-center gap-4">
+          {/* Botón de menú para móviles 
+          
             <a 
               href="https://wa.me/+584126099909" target="_blank" rel="noopener noreferrer"
               className="hidden md:inline-flex px-6 py-2 border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-brand-dark transition-all duration-300 rounded-full font-medium"
             >
               Hablemos
             </a>
+            */}
+        <div className="flex items-center gap-4">
+            <button 
+              disabled
+              title="Disponible próximamente"
+              className="px-6 py-2 border border-brand-primary/30 text-text-primary/50 rounded-full cursor-not-allowed font-medium text-sm transition-all"
+            >
+              Hablemos (Pronto)
+            </button>
 
-            {/* El botón animado que ahora será la única vía para abrir/cerrar */}
             <MenuButton isOpen={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} />
           </div>
 

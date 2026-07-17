@@ -39,14 +39,19 @@ export default function Hero() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a 
-              href={heroContent.whatsappUrl} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex justify-center items-center px-8 py-3.5 bg-brand-primary text-brand-dark font-bold rounded-full hover:bg-white hover:scale-105 transition-all duration-300"
+            
+            {/* BOTÓN DESHABILITADO */}
+            <button 
+              disabled={!heroContent.whatsappUrl}
+              className={`inline-flex justify-center items-center px-8 py-3.5 font-bold rounded-full transition-all duration-300 ${
+                heroContent.whatsappUrl 
+                  ? "bg-brand-primary text-brand-dark hover:bg-white hover:scale-105" 
+                  : "bg-brand-primary/30 text-brand-dark/70 cursor-not-allowed"
+              }`}
             >
-              Hablemos por WhatsApp
-            </a>
+              {heroContent.whatsappUrl ? "Hablemos por WhatsApp" : "WhatsApp (Pronto)"}
+            </button>
+            
             <a 
               href="#proyectos" 
               className="inline-flex justify-center items-center px-8 py-3.5 border border-brand-primary/50 text-text-primary rounded-full hover:border-brand-primary hover:text-brand-primary transition-all duration-300 font-medium"
