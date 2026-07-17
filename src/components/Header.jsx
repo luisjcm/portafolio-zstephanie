@@ -43,7 +43,8 @@ export default function Header() {
               Hablemos
             </a>
             */}
-        <div className="flex items-center gap-4">
+       <div className="flex items-center gap-4">
+        {/* 
             <button 
               disabled
               title="Disponible próximamente"
@@ -51,7 +52,7 @@ export default function Header() {
             >
               Hablemos (Pronto)
             </button>
-
+*/}
             <MenuButton isOpen={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} />
           </div>
 
