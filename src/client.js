@@ -4,8 +4,8 @@ import { createImageUrlBuilder } from '@sanity/image-url';
 export const client = createClient({
   projectId: 'cct5ob70',
   dataset: 'production',
-  useCdn: true, // Esto hace que el contenido cargue rapidísimo
-  apiVersion: '2024-01-01', // Usa esta fecha estándar
+  useCdn: true, 
+  apiVersion: '2024-01-01', 
 });
 
 // Esta función nos servirá más adelante para extraer las URLs de las imágenes
