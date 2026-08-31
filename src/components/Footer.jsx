@@ -95,7 +95,7 @@ export default function Footer() {
         <div className="pt-6 border-t border-brand-dark/50 flex flex-col md:flex-row justify-between items-center text-xs text-text-secondary gap-4 md:gap-0 text-center">
           <p>© {currentYear} Zstephanie. Todos los derechos reservados.</p>
           <p>
-            Desarrollado por <a href="https://github.com/luisjcm" target="_blank" rel="noopener noreferrer" className="text-brand-primary font-medium hover:underline">luisjcm</a>
+            Desarrollado por <a href="https://luisjcm.com/" target="_blank" rel="noopener noreferrer" className="text-brand-primary font-medium hover:underline">luisjcm</a>
           </p>
         </div>
       </div>
