@@ -5,6 +5,11 @@ import { skills } from '../data/content';
 export default function Skills() {
   return (
     <section id="habilidades" className="py-24 bg-brand-dark relative overflow-hidden">
+      {/* Resplandores: verde orgánico (acento secundario) y rosa creativo */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -bottom-[30%] -left-[10%] w-[55%] h-[70%] rounded-full bg-brand-green/40 blur-[140px]"></div>
+        <div className="absolute -top-[20%] -right-[10%] w-[45%] h-[55%] rounded-full bg-brand-primary/10 blur-[130px]"></div>
+      </div>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
 
         {/* Cabecera de la sección */}
@@ -46,7 +51,7 @@ export default function Skills() {
               whileHover={{ y: -5, scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
               // Brillo discreto y cambio de fondo con Tailwind
-              className="group flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 rounded-full bg-brand-surface border border-brand-primary/20 hover:border-brand-primary hover:bg-brand-primary/10 hover:shadow-[0_0_20px_rgba(163,89,160,0.3)] transition-colors duration-300 cursor-pointer"
+              className="group flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 rounded-full bg-brand-surface/80 backdrop-blur-sm border border-brand-ivory/10 hover:border-brand-primary hover:bg-brand-primary/10 hover:shadow-[0_0_20px_rgba(163,89,160,0.3)] transition-colors duration-300 cursor-pointer"
             >
               {/* Icono SVG de Chispa con rotación suave al hover */}
               <svg 

@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-brand-surface pt-16 pb-8 border-t border-brand-dark">
+    <footer className="bg-gradient-to-b from-brand-surface via-brand-surface to-brand-crimson/40 pt-16 pb-8 border-t border-brand-crimson/60">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Contenedor Flex Principal: Centrado en móvil, Izquierda en Desktop */}
@@ -101,7 +101,7 @@ export default function Footer() {
         </div>
 
         {/* Barra Inferior (Centrada y apilada en móvil) */}
-        <div className="pt-6 border-t border-brand-dark/50 flex flex-col md:flex-row justify-between items-center text-xs text-text-secondary gap-4 md:gap-0 text-center">
+        <div className="pt-6 border-t border-brand-ivory/10 flex flex-col md:flex-row justify-between items-center text-xs text-text-secondary gap-4 md:gap-0 text-center">
           <p>© {currentYear} Zstephanie. Todos los derechos reservados.</p>
           <p>
             Desarrollado por <a href="https://luisjcm.com/" target="_blank" rel="noopener noreferrer" className="text-brand-primary font-medium hover:underline">luisjcm</a>

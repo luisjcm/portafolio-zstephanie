@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import zsLogo from '../assets/zs-logo.png';
 
 export default function NotFound() {
   return (
     <main className="min-h-screen bg-brand-dark flex flex-col items-center justify-center p-6 relative overflow-hidden selection:bg-brand-primary/30 selection:text-brand-primary">
       
       {/* Luz de fondo difuminada */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-[400px] bg-brand-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-[400px] bg-brand-crimson/50 blur-[130px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-1/4 left-1/3 w-72 h-72 bg-brand-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
 
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
@@ -14,16 +16,13 @@ export default function NotFound() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="relative z-10 text-center flex flex-col items-center"
       >
-        {/* SVG Animado Alusivo (Ruta perdida) */}
-        <motion.div 
-          animate={{ y: [0, -15, 0] }} 
+        {/* Monograma ZS flotando (archivo de imagen oficial, sin recolorear) */}
+        <motion.div
+          animate={{ y: [0, -15, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="mb-8 text-brand-primary"
+          className="mb-8"
         >
-          <svg className="w-40 h-40 md:w-56 md:h-56 opacity-90" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 12v.01M16 16l2 2m-2-2l-2 2m2-2l2-2m-2 2l-2-2" />
-          </svg>
+          <img src={zsLogo} alt="Monograma ZS" width="205" height="280" className="h-40 md:h-56 w-auto drop-shadow-[0_10px_40px_rgba(86,2,22,0.8)]" />
         </motion.div>
 
         <h1 className="text-7xl md:text-9xl font-serif font-bold text-text-primary tracking-tighter mb-4">

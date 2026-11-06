@@ -4,7 +4,7 @@ import { experience, education } from '../data/content';
 
 export default function Timeline() {
   return (
-    <section id="experiencia" className="py-24 bg-brand-surface/30 border-t border-brand-dark">
+    <section id="experiencia" className="py-24 bg-gradient-to-b from-brand-crimson/30 via-brand-crimson/10 to-transparent border-t border-brand-crimson/60">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Cabecera */}
@@ -43,7 +43,7 @@ export default function Timeline() {
               <h4 className="text-2xl font-serif font-bold text-text-primary">Experiencia Laboral</h4>
             </div>
             
-            <div className="border-l border-brand-primary/20 pl-8 relative">
+            <div className="border-l border-brand-primary/30 pl-8 relative">
               {experience.map((item, index) => (
                 <motion.div 
                   key={item.id}
@@ -83,7 +83,7 @@ export default function Timeline() {
               <h4 className="text-2xl font-serif font-bold text-text-primary">Formación Académica</h4>
             </div>
             
-            <div className="border-l border-brand-primary/20 pl-8 relative">
+            <div className="border-l border-brand-primary/30 pl-8 relative">
               {education.map((item, index) => (
                 <motion.div 
                   key={item.id}

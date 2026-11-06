@@ -50,7 +50,7 @@ export default function Proyectos() {
               transition={{ duration: 0.5, delay: index * 0.15 }}
               whileHover={{ y: -8 }}
               whileTap={{ scale: 0.98 }}
-              className="group rounded-xl md:rounded-2xl bg-brand-surface border border-brand-dark overflow-hidden hover:border-brand-primary hover:shadow-[0_0_30px_rgba(163,89,160,0.15)] transition-all duration-300 flex flex-col cursor-pointer"
+              className="group rounded-xl md:rounded-2xl bg-brand-surface border border-brand-ivory/10 overflow-hidden hover:border-brand-primary hover:shadow-[0_12px_40px_rgba(86,2,22,0.6)] transition-all duration-300 flex flex-col cursor-pointer"
             >
               <Link to={`/proyectos/${project.slug.current}`} className="flex flex-col h-full" aria-label={`Ver detalles de ${project.title}`}>
                 
@@ -84,7 +84,7 @@ export default function Proyectos() {
                   )}
                 </div>
 
-                <div className="p-3 md:p-6 flex flex-col flex-grow relative z-20 bg-brand-surface border-t border-brand-dark/50">
+                <div className="p-3 md:p-6 flex flex-col flex-grow relative z-20 bg-brand-surface border-t border-brand-ivory/10">
                   <h4 className="text-sm md:text-xl font-serif font-bold text-text-primary mb-1 md:mb-3 group-hover:text-brand-primary transition-colors line-clamp-1 md:line-clamp-none">
                     {project.title}
                   </h4>
