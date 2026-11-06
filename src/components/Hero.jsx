@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { heroContent } from '../data/content';
 import heroImg from '../assets/hero-zstephanie.jpg';
+import zsLogo from '../assets/zs-logo.png';
 
 export default function Hero() {
 
@@ -16,6 +17,8 @@ export default function Hero() {
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-brand-primary/10 blur-[120px]"></div>
         <div className="absolute -bottom-[25%] -right-[10%] w-[55%] h-[55%] rounded-full bg-brand-crimson/40 blur-[140px]"></div>
+        {/* Marca de agua: monograma ZS (archivo oficial, solo con opacidad reducida) */}
+        <img src={zsLogo} alt="" aria-hidden="true" className="absolute -left-16 top-1/2 -translate-y-1/2 h-[115%] w-auto opacity-[0.05] select-none" />
       </div>
 
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
@@ -27,12 +30,13 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center lg:text-left z-10"
         >
-          <h2 className="text-brand-primary font-medium tracking-[0.2em] uppercase mb-4 text-sm">
+          <h2 className="text-brand-primary font-semibold tracking-[0.25em] uppercase mb-5 text-xs md:text-sm flex items-center gap-4 justify-center lg:justify-start">
+            <span className="hidden lg:block h-px w-10 bg-brand-primary/60"></span>
             {heroContent.greeting}
           </h2>
-          
+
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 text-text-primary leading-[1.1]">
-                {firstPart} <span className="text-brand-primary block mt-2">{lastWord}.</span>
+                {firstPart} <span className="text-brand-primary italic font-medium block mt-2">{lastWord}.</span>
           </h1>
           
           <p className="text-text-secondary text-base md:text-lg mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
@@ -89,6 +93,8 @@ export default function Hero() {
           
           {/* Sombras/Brillos detrás de la imagen para dar profundidad */}
           <div className="absolute -inset-4 bg-brand-crimson/50 blur-2xl -z-10 rounded-full lg:translate-x-4 lg:translate-y-4"></div>
+          {/* Marco desplazado: da profundidad editorial a la fotografía */}
+          <div className="absolute inset-0 translate-x-4 translate-y-4 rounded-3xl border border-brand-ivory/25 -z-10 pointer-events-none"></div>
         </motion.div>
 
       </div>

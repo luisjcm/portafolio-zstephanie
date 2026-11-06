@@ -1,3 +1,7 @@
+/* Tipografía de marca (empaquetada, sin depender de servidores externos) */
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/playfair-display";
+@import "@fontsource-variable/playfair-display/wght-italic.css";
 @import "tailwindcss";
 
 @theme {
@@ -12,17 +16,17 @@
      (src/assets/zs-logo.png). No replicarlo con CSS (ver manual de marca). */
 
   /* Derivados de la paleta (no están en el manual; ajustables) */
-  --color-brand-surface: #1b1b21;   /* Grafito un tono más claro para tarjetas y footer */
+  --color-brand-surface: #1b1b21;   /* Grafito un tono más claro (footer, tarjetas oscuras) */
   --color-brand-accent: #FDFBF7;    /* Alias: hover de botones = marfil */
 
-  /* Colores de Texto */
+  /* Colores de Texto (sobre fondos oscuros) */
   --color-text-primary: #FDFBF7;    /* Marfil */
   --color-text-secondary: #AAA9A8;  /* Marfil al 65 % sobre el grafito */
 
   /* Otros */
   --color-whatsapp: #25D366;
 
-  /* Tipografía */
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-serif: 'Merriweather', serif;
+  /* Tipografía: serif de alto contraste, hermana del monograma ZS */
+  --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display Variable', 'Playfair Display', Georgia, serif;
 }
