@@ -46,7 +46,7 @@ export default function Skills() {
               whileHover={{ y: -5, scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
               // Brillo discreto y cambio de fondo con Tailwind
-              className="group flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 rounded-full bg-brand-surface border border-brand-primary/20 hover:border-brand-primary hover:bg-brand-primary/10 hover:shadow-[0_0_20px_rgba(177,156,217,0.3)] transition-colors duration-300 cursor-pointer"
+              className="group flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 rounded-full bg-brand-surface border border-brand-primary/20 hover:border-brand-primary hover:bg-brand-primary/10 hover:shadow-[0_0_20px_rgba(163,89,160,0.3)] transition-colors duration-300 cursor-pointer"
             >
               {/* Icono SVG de Chispa con rotación suave al hover */}
               <svg 

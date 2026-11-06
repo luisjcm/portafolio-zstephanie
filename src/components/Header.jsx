@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { navLinks } from '../data/content';
 import MobileMenu from './MobileMenu';
 import MenuButton from './MenuButton';
+import zsLogo from '../assets/zs-logo.png';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,12 +16,13 @@ export default function Header() {
       <header className="fixed top-0 w-full z-50 bg-brand-dark/80 backdrop-blur-md border-b border-brand-surface transition-all duration-300">
         <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
           
-          <a 
-            href="#inicio" 
-            className="text-2xl font-serif font-bold text-brand-primary tracking-wide"
+          <a
+            href="#inicio"
+            className="flex items-center gap-3 text-2xl font-serif font-bold text-text-primary tracking-wide"
             onClick={() => setIsMenuOpen(false)} // Si tocan el logo, se cierra el menú
           >
-            Zstephanie.
+            <img src={zsLogo} alt="Monograma ZS" width="205" height="280" className="h-11 w-auto" />
+            <span>Zstephanie.</span>
           </a>
 
           <nav className="hidden md:flex gap-8">

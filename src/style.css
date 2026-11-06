@@ -1,15 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colores de Marca */
-  --color-brand-dark: #121212;
-  --color-brand-surface: #18181B;
-  --color-brand-primary: #B19CD9;
-  --color-brand-accent: #FFFFFF;
+  /* ───────── Paleta oficial · Documento Maestro de Identidad de Marca ───────── */
+  --color-brand-dark: #111115;      /* Negro Grafito Profundo · fondo oscuro principal */
+  --color-brand-ivory: #FDFBF7;     /* Blanco Marfil Suave · fondo claro / textos */
+  --color-brand-crimson: #560216;   /* Carmesí Oscuro · autoridad e institucionalidad */
+  --color-brand-primary: #a359a0;   /* Rosa Neón Apagado · acento creativo principal */
+  --color-brand-green: #32620e;     /* Verde Oscuro · acento orgánico secundario */
+
+  /* El dorado metálico NO existe como color: solo vive en el archivo del logo
+     (src/assets/zs-logo.png). No replicarlo con CSS (ver manual de marca). */
+
+  /* Derivados de la paleta (no están en el manual; ajustables) */
+  --color-brand-surface: #1b1b21;   /* Grafito un tono más claro para tarjetas y footer */
+  --color-brand-accent: #FDFBF7;    /* Alias: hover de botones = marfil */
 
   /* Colores de Texto */
-  --color-text-primary: #E5E5E5;
-  --color-text-secondary: #A1A1AA;
+  --color-text-primary: #FDFBF7;    /* Marfil */
+  --color-text-secondary: #AAA9A8;  /* Marfil al 65 % sobre el grafito */
 
   /* Otros */
   --color-whatsapp: #25D366;

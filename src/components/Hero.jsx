@@ -12,9 +12,10 @@ export default function Hero() {
   return (
     <section id="inicio" className="min-h-screen flex items-center pt-20 pb-12 relative overflow-hidden">
       
-      {/* Fondo decorativo opcional (un brillo sutil lavanda en la esquina) */}
+      {/* Fondo decorativo: brillo rosa (acento creativo) arriba y carmesí (autoridad) abajo */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-brand-primary/10 blur-[120px]"></div>
+        <div className="absolute -bottom-[25%] -right-[10%] w-[55%] h-[55%] rounded-full bg-brand-crimson/40 blur-[140px]"></div>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
@@ -45,8 +46,8 @@ export default function Hero() {
               disabled={!heroContent.whatsappUrl}
               className={`inline-flex justify-center items-center px-8 py-3.5 font-bold rounded-full transition-all duration-300 ${
                 heroContent.whatsappUrl 
-                  ? "bg-brand-primary text-brand-dark hover:bg-white hover:scale-105" 
-                  : "bg-brand-primary/30 text-brand-dark/70 cursor-not-allowed"
+                  ? "bg-brand-primary text-text-primary hover:bg-brand-accent hover:text-brand-dark hover:scale-105" 
+                  : "bg-brand-primary/30 text-text-primary/70 cursor-not-allowed"
               }`}
             >
               {heroContent.whatsappUrl ? "Hablemos por WhatsApp" : "WhatsApp (Pronto)"}
@@ -87,7 +88,7 @@ export default function Hero() {
           </div>
           
           {/* Sombras/Brillos detrás de la imagen para dar profundidad */}
-          <div className="absolute -inset-4 bg-brand-primary/20 blur-2xl -z-10 rounded-full lg:translate-x-4 lg:translate-y-4"></div>
+          <div className="absolute -inset-4 bg-brand-crimson/50 blur-2xl -z-10 rounded-full lg:translate-x-4 lg:translate-y-4"></div>
         </motion.div>
 
       </div>

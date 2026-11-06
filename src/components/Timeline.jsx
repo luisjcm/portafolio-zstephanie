@@ -53,7 +53,7 @@ export default function Timeline() {
                   transition={{ duration: 0.5, delay: index * 0.15 }}
                   className="mb-12 last:mb-0 relative"
                 >
-                  <div className="absolute -left-[37px] top-1.5 w-3 h-3 rounded-full bg-brand-primary shadow-[0_0_10px_rgba(177,156,217,0.5)]"></div>
+                  <div className="absolute -left-[37px] top-1.5 w-3 h-3 rounded-full bg-brand-primary shadow-[0_0_10px_rgba(163,89,160,0.5)]"></div>
                   <span className="text-brand-primary text-xs font-bold tracking-widest uppercase bg-brand-primary/10 px-3 py-1 rounded-full">
                     {item.period}
                   </span>
@@ -93,7 +93,7 @@ export default function Timeline() {
                   transition={{ duration: 0.5, delay: index * 0.15 }}
                   className="mb-12 last:mb-0 relative"
                 >
-                  <div className="absolute -left-[37px] top-1.5 w-3 h-3 rounded-full bg-brand-primary shadow-[0_0_10px_rgba(177,156,217,0.5)]"></div>
+                  <div className="absolute -left-[37px] top-1.5 w-3 h-3 rounded-full bg-brand-primary shadow-[0_0_10px_rgba(163,89,160,0.5)]"></div>
                   <span className="text-brand-primary text-xs font-bold tracking-widest uppercase bg-brand-primary/10 px-3 py-1 rounded-full">
                     {item.period}
                   </span>

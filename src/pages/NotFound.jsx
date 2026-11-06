@@ -40,9 +40,9 @@ export default function NotFound() {
 
         <Link 
           to="/"
-          className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-brand-dark bg-brand-primary rounded-full overflow-hidden transition-transform hover:scale-105"
+          className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-text-primary bg-brand-primary rounded-full overflow-hidden transition-transform hover:scale-105"
         >
-          <span className="absolute inset-0 w-full h-full bg-white/30 group-hover:translate-x-full transition-transform duration-500 ease-out -translate-x-full skew-x-12"></span>
+          <span className="absolute inset-0 w-full h-full bg-brand-accent/30 group-hover:translate-x-full transition-transform duration-500 ease-out -translate-x-full skew-x-12"></span>
           <span className="relative z-10 flex items-center">
             <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />

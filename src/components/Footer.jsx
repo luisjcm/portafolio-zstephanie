@@ -1,5 +1,6 @@
 // src/components/Footer.jsx
 import { navLinks, socialLinks } from '../data/content';
+import zsLogo from '../assets/zs-logo.png';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,10 +14,18 @@ export default function Footer() {
           
           {/* Columna 1: Marca y Email (Ocupa 100% en móvil, 25% en desktop) */}
           <div className="w-full md:w-1/4 flex flex-col items-center md:items-start pr-0 md:pr-4">
+            <img
+              src={zsLogo}
+              alt="Monograma ZS"
+              width="205"
+              height="280"
+              loading="lazy"
+              className="h-20 w-auto mb-4"
+            />
             <h3 className="text-xs tracking-[0.2em] font-semibold text-text-secondary uppercase mb-1">
               Portafolio de
             </h3>
-            <h2 className="text-3xl font-serif font-bold text-brand-primary mb-4">
+            <h2 className="text-3xl font-serif font-bold text-text-primary mb-4">
               Zstephanie.
             </h2>
             <p className="text-text-secondary text-sm mb-8 leading-relaxed max-w-[280px] md:max-w-none">
@@ -81,7 +90,7 @@ export default function Footer() {
                         <button className="w-10 h-10 rounded-full border border-text-secondary/20 flex items-center justify-center text-text-secondary hover:border-brand-primary hover:text-brand-primary transition-colors cursor-default">
                           B
                         </button>
-                        <button className="w-10 h-10 rounded-full bg-brand-primary text-brand-dark flex items-center justify-center font-bold cursor-default">
+                        <button className="w-10 h-10 rounded-full bg-brand-primary text-text-primary flex items-center justify-center font-bold cursor-default">
                           L
                         </button>
                       </div>
