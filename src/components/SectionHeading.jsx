@@ -6,8 +6,8 @@ import zsLogo from '../assets/zs-logo.png';
 
 // tone = color del FONDO donde vive la cabecera
 const TONES = {
-  dark:    { kicker: 'text-brand-primary',   title: 'text-text-primary', line: 'bg-brand-ivory/20' },
-  light:   { kicker: 'text-brand-primary',   title: 'text-brand-crimson', line: 'bg-brand-crimson/20' },
+  dark:    { kicker: 'text-brand-ivory/60',  title: 'text-text-primary', line: 'bg-brand-ivory/20' },
+  light:   { kicker: 'text-brand-crimson/70',  title: 'text-brand-crimson', line: 'bg-brand-crimson/20' },
   crimson: { kicker: 'text-brand-ivory/70',  title: 'text-text-primary', line: 'bg-brand-ivory/25' },
 };
 

@@ -150,7 +150,7 @@ export default function ProjectDetail() {
               <div className="lg:sticky lg:top-32 h-fit flex flex-col gap-6">
                 <header>
                   <motion.h1 variants={itemVariants} className="text-3xl md:text-5xl font-serif font-bold text-text-primary mb-6 leading-tight">{project.title}</motion.h1>
-                  <motion.div variants={itemVariants} className="w-12 h-1 bg-brand-primary rounded-full mb-6"></motion.div>
+                  <motion.div variants={itemVariants} className="w-12 h-1 bg-brand-ivory/40 rounded-full mb-6"></motion.div>
                   <motion.p variants={itemVariants} className="text-text-secondary text-lg leading-relaxed font-light">{project.description}</motion.p>
                 </header>
                 {project.pdfUrl && (
@@ -169,8 +169,8 @@ export default function ProjectDetail() {
           {validGallery.length > 0 && (
             <motion.section variants={itemVariants} className="mt-12 border-t border-brand-ivory/10 pt-16">
               <div className="flex items-center gap-6 mb-12">
-                <h3 className="text-brand-primary tracking-[0.2em] uppercase text-sm font-bold">Galería Social</h3>
-                <div className="h-px bg-gradient-to-r from-brand-primary/30 to-transparent flex-1"></div>
+                <h3 className="text-brand-ivory/70 tracking-[0.2em] uppercase text-sm font-bold">Galería Social</h3>
+                <div className="h-px bg-gradient-to-r from-brand-ivory/25 to-transparent flex-1"></div>
               </div>
               <div className="grid grid-cols-3 gap-1 md:gap-3 max-w-5xl mx-auto">
                 {validGallery.map((image, index) => (

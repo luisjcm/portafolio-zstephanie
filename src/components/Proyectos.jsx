@@ -44,7 +44,7 @@ export default function Proyectos() {
               transition={{ duration: 0.5, delay: index * 0.15 }}
               whileHover={{ y: -8 }}
               whileTap={{ scale: 0.98 }}
-              className="group rounded-xl md:rounded-2xl bg-white/80 border border-brand-crimson/15 shadow-[0_8px_24px_rgba(86,2,22,0.06)] overflow-hidden hover:border-brand-primary hover:shadow-[0_18px_44px_rgba(86,2,22,0.22)] transition-all duration-300 flex flex-col cursor-pointer"
+              className="group rounded-xl md:rounded-2xl bg-white/80 border border-brand-crimson/15 shadow-[0_8px_24px_rgba(86,2,22,0.06)] overflow-hidden hover:border-brand-crimson/50 hover:shadow-[0_18px_44px_rgba(86,2,22,0.22)] transition-all duration-300 flex flex-col cursor-pointer"
             >
               <Link to={`/proyectos/${project.slug.current}`} className="flex flex-col h-full" aria-label={`Ver detalles de ${project.title}`}>
                 
@@ -79,7 +79,7 @@ export default function Proyectos() {
                 </div>
 
                 <div className="p-3 md:p-6 flex flex-col flex-grow relative z-20 bg-white/80 border-t border-brand-crimson/10">
-                  <h4 className="text-sm md:text-xl font-serif font-bold text-brand-crimson mb-1 md:mb-3 group-hover:text-brand-primary transition-colors line-clamp-1 md:line-clamp-none">
+                  <h4 className="text-sm md:text-xl font-serif font-bold text-brand-crimson mb-1 md:mb-3 group-hover:text-brand-dark transition-colors line-clamp-1 md:line-clamp-none">
                     {project.title}
                   </h4>
                   <p className="text-brand-dark/70 text-[11px] md:text-sm leading-relaxed mb-3 md:mb-6 flex-grow line-clamp-2 md:line-clamp-3">
@@ -89,7 +89,7 @@ export default function Proyectos() {
                   {project.tags && (
                     <div className="flex flex-wrap gap-1 md:gap-2 mt-auto">
                       {project.tags.slice(0,2).map((tag, i) => (
-                        <span key={i} className="px-2 py-0.5 md:px-3 md:py-1 text-[9px] md:text-[11px] font-medium tracking-wide text-brand-crimson bg-brand-primary/10 rounded-full border border-brand-primary/30 group-hover:border-brand-primary transition-colors">
+                        <span key={i} className="px-2 py-0.5 md:px-3 md:py-1 text-[9px] md:text-[11px] font-medium tracking-wide text-brand-crimson bg-brand-crimson/5 rounded-full border border-brand-crimson/20 group-hover:border-brand-crimson/50 transition-colors">
                           {tag}
                         </span>
                       ))}

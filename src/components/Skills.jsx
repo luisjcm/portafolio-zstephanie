@@ -9,7 +9,7 @@ export default function Skills() {
       {/* Veladuras suaves: verde orgánico (acento secundario) y rosa creativo */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -bottom-[30%] -left-[10%] w-[55%] h-[70%] rounded-full bg-brand-green/15 blur-[140px]"></div>
-        <div className="absolute -top-[20%] -right-[10%] w-[45%] h-[55%] rounded-full bg-brand-primary/10 blur-[130px]"></div>
+        <div className="absolute -top-[20%] -right-[10%] w-[45%] h-[55%] rounded-full bg-brand-crimson/10 blur-[130px]"></div>
       </div>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
 

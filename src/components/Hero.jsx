@@ -15,7 +15,7 @@ export default function Hero() {
       
       {/* Fondo decorativo: brillo rosa (acento creativo) arriba y carmesí (autoridad) abajo */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-brand-primary/10 blur-[120px]"></div>
+        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-brand-crimson/25 blur-[120px]"></div>
         <div className="absolute -bottom-[25%] -right-[10%] w-[55%] h-[55%] rounded-full bg-brand-crimson/40 blur-[140px]"></div>
         {/* Marca de agua: monograma ZS (archivo oficial, solo con opacidad reducida) */}
         <img src={zsLogo} alt="" aria-hidden="true" className="absolute -left-16 top-1/2 -translate-y-1/2 h-[115%] w-auto opacity-[0.05] select-none" />
@@ -30,13 +30,13 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center lg:text-left z-10"
         >
-          <h2 className="text-brand-primary font-semibold tracking-[0.25em] uppercase mb-5 text-xs md:text-sm flex items-center gap-4 justify-center lg:justify-start">
-            <span className="hidden lg:block h-px w-10 bg-brand-primary/60"></span>
+          <h2 className="text-brand-ivory/60 font-semibold tracking-[0.25em] uppercase mb-5 text-xs md:text-sm flex items-center gap-4 justify-center lg:justify-start">
+            <span className="hidden lg:block h-px w-10 bg-brand-ivory/30"></span>
             {heroContent.greeting}
           </h2>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 text-text-primary leading-[1.1]">
-                {firstPart} <span className="text-brand-primary italic font-medium block mt-2">{lastWord}.</span>
+                {firstPart} <span className="text-brand-ivory italic font-medium block mt-2">{lastWord}.</span>
           </h1>
           
           <p className="text-text-secondary text-base md:text-lg mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
@@ -51,7 +51,7 @@ export default function Hero() {
               className={`inline-flex justify-center items-center px-8 py-3.5 font-bold rounded-full transition-all duration-300 ${
                 heroContent.whatsappUrl 
                   ? "bg-brand-primary text-text-primary hover:bg-brand-accent hover:text-brand-dark hover:scale-105" 
-                  : "bg-brand-primary/30 text-text-primary/70 cursor-not-allowed"
+                  : "bg-brand-ivory/10 border border-brand-ivory/15 text-text-primary/50 cursor-not-allowed"
               }`}
             >
               {heroContent.whatsappUrl ? "Hablemos por WhatsApp" : "WhatsApp (Pronto)"}
@@ -59,7 +59,7 @@ export default function Hero() {
             
             <a 
               href="#proyectos" 
-              className="inline-flex justify-center items-center px-8 py-3.5 border border-brand-primary/50 text-text-primary rounded-full hover:border-brand-primary hover:text-brand-primary transition-all duration-300 font-medium"
+              className="inline-flex justify-center items-center px-8 py-3.5 border border-brand-ivory/30 text-text-primary rounded-full hover:border-brand-ivory hover:bg-brand-ivory/10 transition-all duration-300 font-medium"
             >
               Ver mis proyectos
             </a>
