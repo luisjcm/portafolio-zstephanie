@@ -4,6 +4,34 @@ import { client, urlFor } from '../client';
 import { Link } from 'react-router-dom';
 import SectionHeading from './SectionHeading';
 
+// 1. Componente del Wireframe (Placeholder) utilizando tus clases de Tailwind
+const WireframePlaceholder = () => (
+  <div className="absolute inset-0 flex items-center justify-center bg-brand-dark p-4 md:p-6 z-10 overflow-hidden">
+    {/* Fondo con un sutil resplandor central */}
+    <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-crimson/30 via-transparent to-transparent transition-opacity duration-500 group-hover:opacity-40"></div>
+
+    <div className="relative w-full h-full border border-brand-crimson/20 rounded-lg flex flex-col items-center justify-center gap-3 md:gap-4 bg-brand-dark/80 backdrop-blur-sm transition-all duration-500 group-hover:border-brand-crimson/50 group-hover:bg-brand-dark/40 shadow-inner">
+      
+      {/* Monograma de la Marca */}
+      <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-brand-accent/30 flex items-center justify-center bg-brand-crimson/5 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_15px_rgba(86,2,22,0.1)] group-hover:shadow-[0_0_20px_rgba(86,2,22,0.3)]">
+        <span className="font-serif text-xl md:text-2xl text-brand-accent/60 group-hover:text-brand-accent transition-colors">
+          ZS
+        </span>
+      </div>
+      
+      {/* Texto de apoyo con líneas decorativas */}
+      <div className="flex items-center gap-2">
+        <div className="h-px w-4 md:w-6 bg-brand-crimson/30 group-hover:bg-brand-crimson/60 transition-colors"></div>
+        <span className="text-brand-accent/50 group-hover:text-brand-accent/90 text-[9px] md:text-[11px] font-serif tracking-[0.2em] uppercase transition-colors">
+          Próximamente
+        </span>
+        <div className="h-px w-4 md:w-6 bg-brand-crimson/30 group-hover:bg-brand-crimson/60 transition-colors"></div>
+      </div>
+      
+    </div>
+  </div>
+);
+
 export default function Proyectos() {
   const [loadedImages, setLoadedImages] = useState({});
   const [proyectos, setProyectos] = useState([]);
@@ -56,16 +84,15 @@ export default function Proyectos() {
                       </div>
                   )}
 
+                  {/* 2. INSERCIÓN DEL WIREFRAME */}
                   {project.mainImages && project.mainImages[0] ? (
                     <>
-                      {/* 1. EL FONDO DIFUMINADO (Ambient Background) */}
                       <img 
-                        src={urlFor(project.mainImages[0]).width(400).url()} // Pedimos una versión más pequeña a Sanity para optimizar
+                        src={urlFor(project.mainImages[0]).width(400).url()} 
                         alt=""
                         className={`absolute inset-0 w-full h-full object-cover scale-110 blur-xl opacity-80 transition-opacity duration-700 ${loadedImages[project._id] ? 'opacity-40' : 'opacity-0'}`}
                       />
                       
-                      {/* 2. LA IMAGEN REAL (Sin recortes, encima del fondo) */}
                       <img 
                         src={urlFor(project.mainImages[0]).url()} 
                         alt={project.title}
@@ -74,7 +101,7 @@ export default function Proyectos() {
                       />
                     </>
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-brand-dark text-brand-crimson/50 text-[10px] md:text-xs font-serif z-10">Sin portada</div>
+                    <WireframePlaceholder />
                   )}
                 </div>
 
