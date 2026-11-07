@@ -52,7 +52,7 @@ export default function Proyectos() {
                   
                   {project.mainImages && project.mainImages[0] && !loadedImages[project._id] && (
                       <div className="absolute inset-0 bg-brand-dark flex items-center justify-center z-20">
-                        <div className="w-6 h-6 md:w-8 md:h-8 border-4 border-brand-primary/20 border-t-brand-primary rounded-full animate-spin"></div>
+                        <div className="w-6 h-6 md:w-8 md:h-8 border-4 border-brand-crimson/20 border-t-brand-crimson rounded-full animate-spin"></div>
                       </div>
                   )}
 
@@ -74,7 +74,7 @@ export default function Proyectos() {
                       />
                     </>
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-brand-dark text-brand-primary/50 text-[10px] md:text-xs font-serif z-10">Sin portada</div>
+                    <div className="w-full h-full flex items-center justify-center bg-brand-dark text-brand-crimson/50 text-[10px] md:text-xs font-serif z-10">Sin portada</div>
                   )}
                 </div>
 

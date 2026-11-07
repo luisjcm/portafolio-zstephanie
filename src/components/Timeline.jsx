@@ -6,7 +6,7 @@ import zsLogo from '../assets/zs-logo.png';
 
 export default function Timeline() {
   return (
-    <section id="experiencia" className="py-24 relative overflow-hidden bg-brand-crimson">
+    <section id="experiencia" className="py-24 relative overflow-hidden bg-brand-dark">
       {/* Marca de agua: monograma ZS (archivo oficial, solo con opacidad reducida) */}
       <img src={zsLogo} alt="" aria-hidden="true" className="pointer-events-none absolute -right-24 top-1/2 -translate-y-1/2 h-[130%] w-auto opacity-[0.08] select-none" />
       <div className="max-w-6xl mx-auto px-6 relative z-10">

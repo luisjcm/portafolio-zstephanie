@@ -8,7 +8,7 @@ export default function Skills() {
     <section id="habilidades" className="py-24 bg-brand-ivory relative overflow-hidden">
       {/* Veladuras suaves: verde orgánico (acento secundario) y rosa creativo */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -bottom-[30%] -left-[10%] w-[55%] h-[70%] rounded-full bg-brand-green/15 blur-[140px]"></div>
+        <div className="absolute -bottom-[30%] -left-[10%] w-[55%] h-[70%] rounded-full bg-brand-crimson/15 blur-[140px]"></div>
         <div className="absolute -top-[20%] -right-[10%] w-[45%] h-[55%] rounded-full bg-brand-crimson/10 blur-[130px]"></div>
       </div>
       <div className="max-w-6xl mx-auto px-6 relative z-10">
@@ -33,11 +33,11 @@ export default function Skills() {
               whileHover={{ y: -5, scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
               // Brillo discreto y cambio de fondo con Tailwind
-              className="group flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 rounded-full bg-white/70 backdrop-blur-sm border border-brand-green/25 hover:border-brand-green hover:bg-brand-green/10 hover:shadow-[0_10px_26px_rgba(50,98,14,0.2)] transition-colors duration-300 cursor-pointer"
+              className="group flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 rounded-full bg-white/70 backdrop-blur-sm border border-brand-crimson/25 hover:border-brand-crimson hover:bg-brand-crimson/10 hover:shadow-[0_10px_26px_rgba(220,20,60,0.2)] transition-colors duration-300 cursor-pointer"
             >
               {/* Icono SVG de Chispa con rotación suave al hover */}
               <svg 
-                className="w-5 h-5 text-brand-green group-hover:rotate-12 transition-transform duration-300" 
+                className="w-5 h-5 text-brand-crimson group-hover:rotate-12 transition-transform duration-300" 
                 fill="none" 
                 viewBox="0 0 24 24" 
                 strokeWidth={1.5} 

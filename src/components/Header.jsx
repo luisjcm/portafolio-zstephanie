@@ -30,7 +30,7 @@ export default function Header() {
               <a 
                 key={link.id} 
                 href={link.href}
-                className="text-text-secondary hover:text-brand-primary transition-colors duration-300 text-sm uppercase tracking-widest font-medium"
+                className="text-text-secondary hover:text-brand-accent transition-colors duration-300 text-sm uppercase tracking-widest font-medium"
               >
                 {link.title}
               </a>

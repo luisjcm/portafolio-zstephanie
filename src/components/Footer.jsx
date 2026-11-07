@@ -6,7 +6,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-b from-brand-surface via-brand-surface to-brand-crimson/40 pt-16 pb-8 border-t border-brand-crimson/60">
+    <footer className="bg-gradient-to-b from-brand-surface via-brand-surface to-brand-accent/10 pt-16 pb-8 border-t border-brand-crimson/60">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Contenedor Flex Principal: Centrado en móvil, Izquierda en Desktop */}
@@ -51,7 +51,7 @@ export default function Footer() {
                 <ul className="space-y-4 text-sm">
                   {navLinks.map((link) => (
                     <li key={link.id}>
-                      <a href={link.href} className="text-text-secondary hover:text-brand-primary transition-colors duration-300">
+                      <a href={link.href} className="text-text-secondary hover:text-brand-accent transition-colors duration-300">
                         {link.title}
                       </a>
                     </li>
@@ -67,9 +67,9 @@ export default function Footer() {
                   Servicios
                 </h4>
                 <ul className="space-y-4 text-sm text-text-secondary">
-                  <li><a href="#branding" className="hover:text-brand-primary transition-colors">Branding</a></li>
-                  <li><a href="#social" className="hover:text-brand-primary transition-colors">Social Media</a></li>
-                  <li><a href="#web" className="hover:text-brand-primary transition-colors">Diseño Web</a></li>
+                  <li><a href="#branding" className="hover:text-brand-accent transition-colors">Branding</a></li>
+                  <li><a href="#social" className="hover:text-brand-accent transition-colors">Social Media</a></li>
+                  <li><a href="#web" className="hover:text-brand-accent transition-colors">Diseño Web</a></li>
                 </ul>
               </div>
             </div>
@@ -84,10 +84,10 @@ export default function Footer() {
               
                   <div className="flex gap-4">
                         {/* Reemplazamos <a> por <div role="button"> o <button> */}
-                        <button className="w-10 h-10 rounded-full border border-text-secondary/20 flex items-center justify-center text-text-secondary hover:border-brand-primary hover:text-brand-primary transition-colors cursor-default">
+                        <button className="w-10 h-10 rounded-full border border-text-secondary/20 flex items-center justify-center text-text-secondary hover:border-brand-accent hover:text-brand-accent transition-colors cursor-default">
                           I
                         </button>
-                        <button className="w-10 h-10 rounded-full border border-text-secondary/20 flex items-center justify-center text-text-secondary hover:border-brand-primary hover:text-brand-primary transition-colors cursor-default">
+                        <button className="w-10 h-10 rounded-full border border-text-secondary/20 flex items-center justify-center text-text-secondary hover:border-brand-accent hover:text-brand-accent transition-colors cursor-default">
                           B
                         </button>
                         <button className="w-10 h-10 rounded-full bg-brand-crimson border border-brand-ivory/20 text-text-primary flex items-center justify-center font-bold cursor-default">
